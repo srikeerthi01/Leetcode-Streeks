@@ -1,9 +1,8 @@
 class Solution(object):
     def maxVowels(self, s, k):
         s=s.lower()
-        count,maxVowel = 0,0
-        vowels = 'aeiou'
-        left= 0
+        count,maxVowel,left = 0,0,0
+        vowels = 'aeiou'  
         for right in range(len(s)):
             if s[right] in vowels:
                 count += 1
@@ -12,10 +11,6 @@ class Solution(object):
                         count -= 1
             if right >= k - 1:
                     maxVowel = max(maxVowel,count)        
-                    
-                    
-
-           
         return maxVowel        
                 
 
