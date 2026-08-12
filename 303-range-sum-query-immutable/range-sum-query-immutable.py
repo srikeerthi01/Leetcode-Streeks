@@ -1,20 +1,17 @@
-class NumArray(object):
+class NumArray:
 
-    def __init__(self, nums):
+    def __init__(self, nums: List[int]):
         self.nums = nums
-        """
-        :type nums: List[int]
-        """
+        self.prefix = [0]
+        rs=0
+        for i in self.nums:
+            rs += i
+            self.prefix.append(rs)
+       
         
 
-    def sumRange(self, left, right):
-        return sum(self.nums[left:right+1])
-        """
-        
-        :type left: int
-        :type right: int
-        :rtype: int
-        """
+    def sumRange(self, left: int, right: int) -> int:
+        return self.prefix[right + 1] - self.prefix[left]
         
 
 
