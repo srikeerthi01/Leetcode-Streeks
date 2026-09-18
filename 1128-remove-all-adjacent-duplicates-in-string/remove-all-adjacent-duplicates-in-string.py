@@ -1,11 +1,13 @@
-class Solution:
-    def removeDuplicates(self, s: str) -> str:
+class Solution(object):
+    def removeDuplicates(self, s):
         stack = []
         for ch in s:
-            if stack and stack[-1] == ch:  #stack[-1] used to check with the ch is eaqaul to the last inserted element , we used stack because the stack is previously empty
+            if not stack:
+                stack.append(ch)
+            elif stack[-1] == ch:
                 stack.pop()
             else:
                 stack.append(ch)
         return "".join(stack)
-         
+
         
